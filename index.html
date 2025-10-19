@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>لوشن إزالة الشعر Bella</title>
+<style>
+  :root{
+    --pink:#f8d7df;
+    --accent:#e64a76;
+    --green:#4CAF50;
+    --muted:#999;
+    --card-border:#f4cfd9;
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Cairo',sans-serif;margin:0;background:#fff;color:#222;direction:rtl;}
+  .wrap{max-width:920px;margin:18px auto;padding:18px;}
+  .hero{text-align:center;margin-bottom:12px}
+  .hero img{width:100%;max-width:520px;border-radius:10px;display:block;margin:0 auto}
+  h1{color:var(--accent);text-align:center;margin:12px 0 6px;font-size:28px}
+  p.lead{color:#666;text-align:center;margin:0 0 10px}
+  .note{background:var(--pink);border:1px solid var(--card-border);padding:10px;border-radius:10px;text-align:center;color:var(--accent);font-weight:700;margin:14px 0}
+  .offers{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:12px}
+  .offer{flex:1 1 340px;border:2px solid var(--card-border);border-radius:12px;padding:12px;background:#fff;cursor:pointer;transition:all .18s ease;position:relative;display:flex;flex-direction:column;align-items:stretch}
+  .offer.selected{border-color:var(--accent);background:linear-gradient(180deg,#fff 0%,var(--pink) 100%);box-shadow:0 8px 24px rgba(230,74,118,0.06)}
+  .offer img{width:100%;height:auto;border-radius:8px;margin-bottom:10px}
+  .offer-head{display:flex;align-items:center;justify-content:space-between}
+  .offer-title{color:var(--accent);font-weight:700}
+  .radio-dot{width:18px;height:18px;border-radius:50%;background:#ddd;border:2px solid #fff;display:inline-block;margin-left:10px;flex-shrink:0}
+  .radio-dot.checked{background:var(--accent);box-shadow:0 0 0 4px rgba(230,74,118,0.12)}
+  .offer p{margin:8px 0;color:#444}
+  form{margin-top:8px;border:1px solid #eee;border-radius:12px;padding:16px;background:#fff}
+  input,textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #ddd;margin-bottom:12px;font-size:15px}
+  input:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px rgba(230,74,118,0.05)}
+  .small{color:#777;font-size:14px;text-align:center;margin-top:8px}
+  button#confirmBtn{width:100%;padding:14px;border:none;border-radius:10px;background:var(--accent);color:#fff;font-size:17px;cursor:pointer}
+  button#confirmBtn[disabled]{opacity:0.9;cursor:default}
+  .footer{font-size:13px;color:#888;text-align:center;margin-top:12px}
+  @media(max-width:640px){ .offers{flex-direction:column} .hero img{max-width:360px} }
+</style>
+
+<!-- Facebook Pixel (يطابق اللي فعّله حسابك) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);
+t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1302281691617529');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1302281691617529&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero" role="banner">
+      <!-- استبدل المسار أدناه بالـ data-uri لو بتحب تضم الصورة داخل الملف -->
+      <img id="heroImg" src="images/hero.jpg" alt="لوشن ازالة الشعر Bella" />
+      <h1>لوشن إزالة الشعر Bella</h1>
+      <p class="lead">نعومة مثالية بدون ألم — تركيبة لطيفة وآمنة للمناطق الحساسة 💖</p>
+    </div>
+
+    <div class="note">🌸 اختاري العرض المناسب قبل إدخال بياناتك</div>
+
+    <div class="offers" id="offers">
+      <!-- عرض 1: مُختار افتراضياً -->
+      <label class="offer selected" data-value="عبوة واحدة - 325 جنيه + م.الشحن">
+        <img src="images/offer1.jpg" alt="عرض 1" />
+        <div class="offer-head">
+          <div class="offer-title">عرض 1: عبوة واحدة</div>
+          <div style="display:flex;align-items:center">
+            <div class="radio-dot checked" aria-hidden="true"></div>
+            <!-- مخفي راديو حقيقي لإرسال القيم -->
+            <input type="radio" name="offer" value="عبوة واحدة - 325 جنيه + م.الشحن" style="display:none" checked>
+          </div>
+        </div>
+        <p>325 جنيه + م.الشحن</p>
+      </label>
+
+      <!-- عرض 2 -->
+      <label class="offer" data-value="عبوتين + واحدة مجانًا - 650 جنيه + الشحن مجانًا">
+        <img src="images/offer2.jpg" alt="عرض 2" />
+        <div class="offer-head">
+          <div class="offer-title">عرض 2: عبوتين + واحدة مجانًا</div>
+          <div style="display:flex;align-items:center">
+            <div class="radio-dot" aria-hidden="true"></div>
+            <input type="radio" name="offer" value="عبوتين + واحدة مجانًا - 650 جنيه + الشحن مجانًا" style="display:none">
+          </div>
+        </div>
+        <p>650 جنيه + الشحن مجانًا</p>
+      </label>
+    </div>
+
+    <form id="orderForm" autocomplete="on">
+      <p style="color:#b43a5a;font-weight:700;text-align:right">✍️ املأ بياناتك، ثم اضغط "✔️ تأكيد الطلب الآن" وانتظر حتى تظهر رسالة التأكيد</p>
+      <input name="name" type="text" placeholder="الاسم الكامل" required />
+      <input name="phone" type="tel" placeholder="رقم الموبايل" required />
+      <input name="governorate" type="text" placeholder="المحافظة" required />
+      <textarea name="address" rows="3" placeholder="منطقة , شارع , رقم البيت , بجوار مكان مشهور" required></textarea>
+
+      <button id="confirmBtn" type="submit">✔️ تأكيد الطلب الآن</button>
+      <div class="small" id="successMsg" style="display:none;color:var(--green);font-weight:700;margin-top:10px;text-align:center">✅ تم إرسال طلبك بنجاح، سيتواصل معك أحد ممثلينا قريبًا.</div>
+      <div class="footer">© 2025 Bella</div>
+    </form>
+  </div>
+
+<script>
+(function(){
+  // رابط السكربت اللي حطته انت
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwM6RMh2sXs3axEg5vfkUefCGf8wbMD_XyxXSVnrIElOVGQ3_JNGULMerUUIJH27z57/exec';
+
+  // عناصر
+  var offers = document.querySelectorAll('.offer');
+  var radios = document.querySelectorAll('input[name="offer"]');
+  var btn = document.getElementById('confirmBtn');
+  var form = document.getElementById('orderForm');
+  var successMsg = document.getElementById('successMsg');
+
+  // helper: set selected class and radio-dot visuals
+  function setSelected(index){
+    offers.forEach(function(o,i){
+      var dot = o.querySelector('.radio-dot');
+      var r = o.querySelector('input[type=radio]');
+      if(i === index){
+        o.classList.add('selected');
+        if(dot) dot.classList.add('checked');
+        if(r) r.checked = true;
+      } else {
+        o.classList.remove('selected');
+        if(dot) dot.classList.remove('checked');
+        if(r) r.checked = false;
+      }
+    });
+  }
+
+  // initial: make sure offer1 is selected by default (index 0)
+  setSelected(0);
+
+  // click handlers to change selection
+  offers.forEach(function(o, idx){
+    o.addEventListener('click', function(){
+      setSelected(idx);
+    });
+  });
+
+  // form submit
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // ensure an offer selected
+    var selRadio = document.querySelector('input[name="offer"]:checked');
+    if(!selRadio){ alert('من فضلك اختر العرض المناسب أولاً'); return; }
+
+    // disable button and change text
+    btn.disabled = true;
+    var originalText = btn.textContent;
+    btn.textContent = 'انتظر قليلاً...';
+    btn.style.background = 'var(--muted)';
+
+    // collect form data and ensure offer included
+    var data = new FormData(form);
+    data.set('offer', selRadio.value);
+
+    // send to google script
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: data,
+      mode: 'cors'
+    }).then(function(resp){
+      if(!resp.ok) throw new Error('خطأ في الاتصال بالخادم');
+      return resp.text();
+    }).then(function(){
+      // track lead
+      try{ fbq('track','Lead'); }catch(e){}
+      // show success: keep button green and disabled permanently until reload
+      btn.textContent = 'تم إرسال طلبك بنجاح ✅';
+      btn.style.background = 'var(--green)';
+      btn.disabled = true;
+      successMsg.style.display = 'block';
+      // do NOT re-enable button; user must reload to send again
+    }).catch(function(err){
+      alert('حدث خطأ أثناء الإرسال: ' + (err.message || 'حاول مرة أخرى'));
+      // restore
+      btn.disabled = false;
+      btn.textContent = originalText;
+      btn.style.background = '';
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
